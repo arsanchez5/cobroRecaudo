@@ -24,8 +24,12 @@ public class CobroRecaudo implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COBRO_RECAUDO_ID", nullable = false)
+    @Column(name = "COD_COBRO_RECAUDO", nullable = false)
     private Long id;
+    @Column(name = "COD_EMPRESA", nullable = false)
+    private Long codEmpresa;
+    @Column(name = "COD_CUENTA", nullable = false)
+    private Long codCuenta;
     @Column(name = "NOMBRE", length = 100, nullable = false)
     private String nombre;
     @Column(name = "TIPO", length = 3, nullable = false)

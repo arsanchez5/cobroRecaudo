@@ -29,7 +29,7 @@ public class RegistroPago implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "REGISTRO_PAGO_ID", nullable = false)
+    @Column(name = "COD_REGISTRO_PAGO", nullable = false)
     private Long id;
     @Column(name = "NUMERO_CONTRAPARTIDA", length = 20, nullable = false)
     private String numeroContrapartida;
@@ -48,7 +48,7 @@ public class RegistroPago implements Serializable {
     private String canal;
 
     @ManyToOne
-    @JoinColumn(name = "COBRO_RECAUDO_ID", referencedColumnName = "COBRO_RECAUDO_ID", insertable = false, updatable = false)
+    @JoinColumn(name = "COD_COBRO_RECAUDO", referencedColumnName = "COD_COBRO_RECAUDO", insertable = false, updatable = false)
     private CobroRecaudo cobroRecaudo;
 
     public RegistroPago(Long id) {
