@@ -24,7 +24,7 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "REGISTRO_PAGO")
+@Table(name = "COR_REGISTRO_PAGO")
 public class RegistroPago implements Serializable {
 
     @Id

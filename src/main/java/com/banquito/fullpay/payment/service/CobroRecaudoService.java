@@ -41,4 +41,12 @@ public class CobroRecaudoService {
         this.repository.save(cobroRecaudo);
     }
 
+    public List<CobroRecaudo> obtainAllCobroRecaudo(){
+        return this.repository.findAll();
+    }
+
+    public List<CobroRecaudo> obtainByEstado(String estado){
+        return this.repository.findByEstado(estado);
+    }
+
 }

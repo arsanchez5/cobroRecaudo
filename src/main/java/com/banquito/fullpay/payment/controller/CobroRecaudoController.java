@@ -18,6 +18,16 @@ public class CobroRecaudoController {
         this.service = service;
     }
 
+    @GetMapping
+    public ResponseEntity<List<CobroRecaudo>> getAll() {
+        try {
+            List<CobroRecaudo> cobros = this.service.obtainAllCobroRecaudo();
+            return ResponseEntity.ok(cobros);
+        } catch (RuntimeException rte) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<CobroRecaudo> getById(@PathVariable Long id) {
         try {
@@ -31,6 +41,16 @@ public class CobroRecaudoController {
     public ResponseEntity<List<CobroRecaudo>> getByTipo(@PathVariable String tipo) {
         try {
             List<CobroRecaudo> cobros = this.service.obtainByTipo(tipo);
+            return ResponseEntity.ok(cobros);
+        } catch (RuntimeException rte) {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
+    @GetMapping("/estado/{estado}")
+    public ResponseEntity<List<CobroRecaudo>> getByEstado(@PathVariable String estado){
+        try {
+            List<CobroRecaudo> cobros = this.service.obtainByEstado(estado);
             return ResponseEntity.ok(cobros);
         } catch (RuntimeException rte) {
             return ResponseEntity.notFound().build();
