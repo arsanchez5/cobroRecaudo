@@ -40,8 +40,6 @@ public class RegistroPago implements Serializable {
     private BigDecimal monto;
     @Column(name = "CUENTA_DESTINO", length = 10, nullable = false)
     private String cuentaDestino;
-    @Column(name = "ESTADO", length = 3, nullable = false)
-    private String estado;
     @Column(name = "TIPO_TRANSACCION", length = 3)
     private String tipoTransaccion;
     @Column(name = "CANAL", length = 3)
