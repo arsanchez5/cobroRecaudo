@@ -37,16 +37,6 @@ public class RegistroPagoController {
         }
     }
 
-    @GetMapping("/estado/{estado}")
-    public ResponseEntity<List<RegistroPago>> getByEstado(@PathVariable String estado) {
-        try {
-            List<RegistroPago> registros = this.service.obtainByEstado(estado);
-            return ResponseEntity.ok(registros);
-        } catch (RuntimeException rte) {
-            return ResponseEntity.notFound().build();
-        }
-    }
-
     @PostMapping
     public ResponseEntity<RegistroPago> create(@RequestBody RegistroPago registroPago) {
         try {

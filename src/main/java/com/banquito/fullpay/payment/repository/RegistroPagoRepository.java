@@ -8,8 +8,6 @@ import java.util.List;
 
 public interface RegistroPagoRepository extends JpaRepository<RegistroPago, Long> {
 
-    List<RegistroPago> findByEstado(String estado);
-
     List<RegistroPago> findByFechaPago(LocalDateTime fechaPago);
     
 }

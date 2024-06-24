@@ -31,17 +31,13 @@ public class RegistroPagoService {
         }
     }
 
-    public List<RegistroPago> obtainByEstado(String estado) {
-        return this.repository.findByEstado(estado);
-    }
-
     public RegistroPago create(RegistroPago registroPago) {
         registroPago.setFechaPago(LocalDateTime.now());
         RegistroPago newRegistro = this.repository.save(registroPago);
         return newRegistro;
     }
 
-    public List<RegistroPago> obtainAllRegistroPago(){
+    public List<RegistroPago> obtainAllRegistroPago() {
         return this.repository.findAll();
     }
 
