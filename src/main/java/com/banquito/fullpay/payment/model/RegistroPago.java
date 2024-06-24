@@ -38,12 +38,8 @@ public class RegistroPago implements Serializable {
     private LocalDateTime fechaPago;
     @Column(name = "MONTO", precision = 17, scale = 2, nullable = false)
     private BigDecimal monto;
-    @Column(name = "CUENTA_DESTINO", length = 10, nullable = false)
-    private String cuentaDestino;
     @Column(name = "TIPO_TRANSACCION", length = 3)
     private String tipoTransaccion;
-    @Column(name = "CANAL", length = 3)
-    private String canal;
 
     @ManyToOne
     @JoinColumn(name = "COD_COBRO_RECAUDO", referencedColumnName = "COD_COBRO_RECAUDO", insertable = false, updatable = false)
