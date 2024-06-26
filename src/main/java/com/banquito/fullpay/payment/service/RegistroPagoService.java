@@ -37,7 +37,7 @@ public class RegistroPagoService {
         return newRegistro;
     }
 
-    public List<RegistroPago> obtainAllRegistroPago() {
+    public List<RegistroPago> obtainAllRegistroPago(){
         return this.repository.findAll();
     }
 

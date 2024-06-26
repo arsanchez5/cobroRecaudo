@@ -9,8 +9,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
@@ -24,36 +22,36 @@ import lombok.ToString;
 @Setter
 @ToString
 @Entity
-@Table(name = "COR_REGISTRO_PAGO")
+@Table(name = "COR_REGISTRO_PAGO", schema = "cobrosrecaudos")
 public class RegistroPago implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "COD_REGISTRO_PAGO", nullable = false)
-    private Long id;
-    @Column(name = "NUMERO_CONTRAPARTIDA", length = 20, nullable = false)
+    @Column(name = "COD_REGISTRO_PAGO")
+    private Long codRegistroPago;
+
+    @Column(name = "NUMERO_CONTRAPARTIDA", length = 20)
     private String numeroContrapartida;
+    
     @Temporal(TemporalType.TIMESTAMP)
-    @Column(name = "FECHA_PAGO", nullable = false)
+    @Column(name = "FECHA_PAGO")
     private LocalDateTime fechaPago;
-    @Column(name = "MONTO", precision = 17, scale = 2, nullable = false)
+
+    @Column(name = "MONTO", precision = 17, scale = 2)
     private BigDecimal monto;
-    @Column(name = "TIPO_TRANSACCION", length = 3)
-    private String tipoTransaccion;
 
-    @ManyToOne
-    @JoinColumn(name = "COD_COBRO_RECAUDO", referencedColumnName = "COD_COBRO_RECAUDO", insertable = false, updatable = false)
-    private CobroRecaudo cobroRecaudo;
+    @Column(name = "METODO_PAGO", length = 3)
+    private String metodoPago;
 
-    public RegistroPago(Long id) {
-        this.id = id;
+    public RegistroPago(Long codRegistroPago) {
+        this.codRegistroPago = codRegistroPago;
     }
 
     @Override
     public int hashCode() {
         final int prime = 31;
         int result = 1;
-        result = prime * result + ((id == null) ? 0 : id.hashCode());
+        result = prime * result + ((codRegistroPago == null) ? 0 : codRegistroPago.hashCode());
         return result;
     }
 
@@ -66,12 +64,12 @@ public class RegistroPago implements Serializable {
         if (getClass() != obj.getClass())
             return false;
         RegistroPago other = (RegistroPago) obj;
-        if (id == null) {
-            if (other.id != null)
+        if (codRegistroPago == null) {
+            if (other.codRegistroPago != null)
                 return false;
-        } else if (!id.equals(other.id))
+        } else if (!codRegistroPago.equals(other.codRegistroPago))
             return false;
         return true;
     }
-
+    
 }
